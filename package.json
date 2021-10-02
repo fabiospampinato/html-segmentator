@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "compile": "tsc --skipLibCheck && tstei",
+    "compile": "tsc --skipLibCheck",
     "compile:watch": "tsc --skipLibCheck --watch",
     "test": "fava",
     "test:watch": "fava -w",
@@ -38,7 +38,6 @@
   "devDependencies": {
     "fava": "^0.0.4",
     "rimraf": "^3.0.2",
-    "typescript": "^4.4.3",
-    "typescript-transform-export-interop": "^1.0.4"
+    "typescript": "^4.4.3"
   }
 }
