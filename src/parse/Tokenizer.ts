@@ -1,6 +1,6 @@
 
 // Copied over from htmlparser2
-// Only renammed the entities functions below to avoid loading the huge, unused, "entities" module
+// Only renamed the entities functions below to avoid loading the huge, unused, "entities" module
 
 const decodeCodePoint = undefined as any;
 const htmlDecodeTree = undefined as any;
