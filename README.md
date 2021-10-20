@@ -1,6 +1,6 @@
 # HTML Segmentator
 
-A small library for splitting an HTML string into its top-level sections. Based on [htmlparser2](https://github.com/fb55/htmlparser2).
+A small library for splitting an HTML string into its top-level sections, optionally collapsing whitespace too. Based on [htmlparser2](https://github.com/fb55/htmlparser2).
 
 ## Install
 
@@ -27,3 +27,4 @@ console.log ( segments );
 
 - Library MIT © Fabio Spampinato.
 - Parser MIT © [htmlparser2](https://github.com/fb55/htmlparser2).
+- Serializer MIT © [dom-serializer](https://github.com/cheeriojs/dom-serializer).
