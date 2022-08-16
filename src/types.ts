@@ -1,12 +1,11 @@
 
-/* TYPES */
+/* MAIN */
 
 type Segment = {
   start: number,
-  end: number,
-  html: string
+  end: number
 };
 
 /* EXPORT */
 
-export {Segment};
+export type {Segment};
