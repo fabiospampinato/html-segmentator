@@ -1,21 +1,61 @@
 
 /* IMPORT */
 
-import parse from './parse';
+import {ELEMENTS_VOIDS} from './constants';
+import {tokenize} from './tokenizer';
+import {TokenKind} from './tokenizer';
 import type {Segment} from './types';
 
 /* MAIN */
 
 const segmentator = ( html: string ): Segment[] => {
 
-  return parse ( html ).childNodes.map ( node => {
+  /* VARIABLES */
 
-    const start = node.startIndex || 0;
-    const end = ( node.endIndex || 0 ) + 1; // Off by one in htmlparser2 🤷‍♂️
+  const tokens =  tokenize ( html );
+  const segments: Segment[] = [];
 
-    return {start, end};
+  let stackCount = 0;
+  let stackStart = 0;
+  let stackVoid = false;
+
+  /* PROCESSING TOKENS */
+
+  tokens.forEach ( ({ type, start, end, value }) => {
+
+    if ( type === TokenKind.Literal ) {
+
+      if ( stackCount ) return;
+
+      segments.push ({ start, end });
+
+    } else if ( type === TokenKind.OpenTag ) {
+
+      stackStart = stackCount ? stackStart : start - 1;
+      stackCount += 1;
+      stackVoid = ELEMENTS_VOIDS.has ( value );
+
+    } else if ( type === TokenKind.CloseTag || ( type === TokenKind.OpenTagEnd && ( stackVoid || value === '/' || value === '--' ) ) ) {
+
+      if ( !stackCount ) return;
+
+      stackCount -= 1;
+
+      if ( !stackCount ) segments.push ({ start: stackStart, end: end + 1 });
+
+    }
 
   });
+
+  if ( stackCount ) {
+
+    segments.push ({ start: stackStart, end: html.length });
+
+  }
+
+  /* RETURN */
+
+  return segments;
 
 };
 
