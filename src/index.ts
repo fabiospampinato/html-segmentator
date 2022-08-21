@@ -137,8 +137,8 @@ segmentator.incremental = ( html: string, htmlPrev: string, segmentsPrev: Segmen
   segmentsEnd.reverse ();
 
   const segmentEndFirst = segmentsEnd[0];
-  const segmentRemainingLast = segmentsRemaining[segmentsRemaining.length - 1];
-  const segmentsEndDelta = ( segmentEndFirst && segmentRemainingLast ) ? ( segmentRemainingLast.end - segmentEndFirst.start ) : 0;
+  const segmentEndBefore = segmentsRemaining[segmentsRemaining.length - 1] || segmentsStart[segmentsStart.length - 1] || { start: 0, end: 0 };
+  const segmentsEndDelta = segmentEndFirst ? ( segmentEndBefore.end - segmentEndFirst.start ) : 0;
 
   if ( segmentsEndDelta ) {
 
