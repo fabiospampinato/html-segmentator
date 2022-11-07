@@ -1,6 +1,3 @@
 {
-  "extends": "tsex/tsconfig.json",
-  "compilerOptions": {
-    "target": "es2018"
-  }
+  "extends": "tsex/tsconfig.json"
 }
