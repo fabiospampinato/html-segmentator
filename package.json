@@ -29,6 +29,6 @@
     "benchloop": "^1.3.2",
     "fava": "^0.0.6",
     "tsex": "^1.1.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.4"
   }
 }
