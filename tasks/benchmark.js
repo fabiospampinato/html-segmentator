@@ -11,8 +11,7 @@ const HTML = 'foo<p foo="123" bar="123" baz="123">bar<img /><p>baz</p></p>'.repe
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 300,
-  log: 'compact'
+  iterations: 300
 });
 
 benchmark ({
