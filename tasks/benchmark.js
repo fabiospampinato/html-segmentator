@@ -10,7 +10,7 @@ const HTML = 'foo<p foo="123" bar="123" baz="123">bar<img /><p>baz</p></p>'.repe
 
 /* MAIN */
 
-benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
+benchmark.config ({
   iterations: 300
 });
 
