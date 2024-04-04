@@ -2,7 +2,7 @@
   "name": "html-segmentator",
   "repository": "github:fabiospampinato/html-segmentator",
   "description": "A small library for splitting an HTML string into its top-level sections. Based on html5parser.",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
