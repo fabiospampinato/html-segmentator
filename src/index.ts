@@ -160,3 +160,4 @@ segmentator.incremental = ( html: string, htmlPrev: string, segmentsPrev: Segmen
 /* EXPORT */
 
 export default segmentator;
+export type {Segment};
